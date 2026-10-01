@@ -1,7 +1,7 @@
 /**
  * Scribd Premium Downloader
  * Content Script with i18n
- * @version 2.9.0
+ * @version 3.0.0
  */
 
 // I18n loaded from libs/i18n.js

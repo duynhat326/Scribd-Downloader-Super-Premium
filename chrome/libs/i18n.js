@@ -10,7 +10,7 @@ const I18n = {
             step1: 'Open any <strong>Scribd</strong> document you want to save.',
             step2: 'A <strong>floating panel</strong> will appear on the screen. Reload if it does not.',
             step3: "Click <strong>'Extract from Server'</strong> to save the original images.",
-            footer: 'v2.9.0 — Open Source'
+            footer: 'v3.0.0 — Open Source'
         },
         overlay: {
             title: '⚡ Scribd Premium', id: 'ID:', file: 'File:', pages: 'Pages:', analyzing: 'Counting pages...',
@@ -36,7 +36,7 @@ const I18n = {
             step1: 'Mở tài liệu <strong>Scribd</strong> bạn muốn lưu.',
             step2: '<strong>Bảng điều khiển nổi</strong> sẽ xuất hiện trên trang. Hãy tải lại trang nếu chưa thấy.',
             step3: "Nhấn <strong>'Trích xuất từ máy chủ'</strong> để lưu ảnh gốc.",
-            footer: 'v2.9.0 — Mã nguồn mở'
+            footer: 'v3.0.0 — Mã nguồn mở'
         },
         overlay: {
             title: '⚡ Scribd Premium', id: 'ID:', file: 'Tệp:', pages: 'Trang:', analyzing: 'Đang đếm trang...',

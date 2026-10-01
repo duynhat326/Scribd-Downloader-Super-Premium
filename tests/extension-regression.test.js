@@ -22,7 +22,16 @@ for (const backgroundPath of [['src', 'chrome', 'background.js'], ['src', 'firef
     assert.doesNotMatch(read(...backgroundPath), /open_external_downloader|vdownloaders|injectAutopilot/);
 }
 
-assert.match(read('README.md'), /Tiện ích trình duyệt/);
+const readme = read('README.md');
+assert.match(readme, /<div align="center">/);
+assert.match(readme, /README-vi\.md/);
+assert.match(readme, /v3\.0\.0/);
+assert.doesNotMatch(readme, /External Download|Español/);
+assert.match(read('README-vi.md'), /Tiện ích này làm gì\?/);
+
+for (const manifestPath of [['src', 'chrome', 'manifest.json'], ['src', 'firefox', 'manifest.json'], ['chrome', 'manifest.json'], ['firefox', 'manifest.json']]) {
+    assert.equal(JSON.parse(read(...manifestPath)).version, '3.0.0');
+}
 for (const popupPath of [['src', 'shared', 'popup.html'], ['chrome', 'popup.html'], ['firefox', 'popup.html']]) {
     assert.equal((read(...popupPath).match(/class="lang-btn/g) || []).length, 2);
 }
