@@ -1,0 +1,323 @@
+/* overlay.css — Scribd Premium Downloader v2.8.0 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+#sdl-overlay {
+    position: fixed !important;
+    bottom: 24px !important;
+    right: 24px !important;
+    z-index: 2147483647 !important;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    pointer-events: none;
+}
+
+/* ── Main card ─────────────────────────────────────────────────────────── */
+.sdl-glass {
+    pointer-events: auto;
+    background: rgba(16, 16, 20, 0.97) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 14px !important;
+    box-shadow:
+        0 24px 56px -8px rgba(0, 0, 0, 0.75),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+    padding: 18px !important;
+    width: 330px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+    animation: sdl-entry 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes sdl-entry {
+    from {
+        transform: translateY(18px) scale(0.97);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* ── Header ────────────────────────────────────────────────────────────── */
+.sdl-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding-bottom: 12px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+}
+
+.sdl-brand {
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    color: #f4f4f5 !important;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    letter-spacing: -0.01em;
+}
+
+.sdl-close {
+    background: transparent !important;
+    border: none !important;
+    color: rgba(255, 255, 255, 0.3) !important;
+    font-size: 20px !important;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer !important;
+    transition: background 0.15s, color 0.15s !important;
+    border-radius: 6px !important;
+    line-height: 1 !important;
+}
+
+.sdl-close:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* ── Info Grid ─────────────────────────────────────────────────────────── */
+.sdl-info-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 7px !important;
+    background: rgba(255, 255, 255, 0.035) !important;
+    padding: 10px 12px !important;
+    border-radius: 9px !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+.sdl-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-size: 12px !important;
+}
+
+.sdl-label {
+    color: rgba(255, 255, 255, 0.38) !important;
+    font-weight: 500 !important;
+}
+
+.sdl-value {
+    color: #d4d4d8 !important;
+    font-weight: 600 !important;
+    font-variant-numeric: tabular-nums !important;
+}
+
+.sdl-truncate {
+    max-width: 170px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    text-align: right !important;
+}
+
+/* ── Progress bar ──────────────────────────────────────────────────────── */
+.sdl-progress-track {
+    background: rgba(255, 255, 255, 0.07) !important;
+    height: 3px !important;
+    border-radius: 2px !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    margin-bottom: 4px;
+}
+
+#sdl-progress-fill {
+    background: linear-gradient(90deg, #34d399, #059669) !important;
+    height: 100% !important;
+    width: 0%;
+    transition: width 0.45s ease !important;
+    border-radius: 2px !important;
+}
+
+/* ── Actions ───────────────────────────────────────────────────────────── */
+.sdl-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.sdl-btn-container {
+    position: relative;
+    width: 100%;
+}
+
+/* Button base */
+.sdl-btn {
+    width: 100% !important;
+    border: none !important;
+    border-radius: 9px !important;
+    color: #fff !important;
+    font-family: inherit !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    padding: 12px 14px !important;
+    cursor: pointer !important;
+    transition: filter 0.15s ease, transform 0.12s ease !important;
+    text-align: left !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 10px;
+    line-height: 1.3 !important;
+    letter-spacing: -0.01em;
+}
+
+.sdl-btn:hover:not(:disabled) {
+    filter: brightness(1.12);
+    transform: translateY(-1px);
+}
+
+.sdl-btn:active:not(:disabled) {
+    filter: brightness(0.95);
+    transform: translateY(0);
+}
+
+.sdl-btn:disabled {
+    opacity: 0.6 !important;
+    cursor: default !important;
+    transform: none !important;
+    filter: none !important;
+}
+
+/* Primary scan button */
+.sdl-btn-primary {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4) !important;
+}
+
+/* Two-line button (title + subtitle) */
+.sdl-btn-twoline {
+    flex-direction: row !important;
+    align-items: center !important;
+    padding: 11px 14px !important;
+}
+
+.sdl-btn-body {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+    text-align: left !important;
+}
+
+.sdl-btn-title {
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+}
+
+.sdl-btn-sub {
+    font-size: 11px !important;
+    font-weight: 400 !important;
+    opacity: 0.55 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+/* Fit-mode button */
+.sdl-btn-fit {
+    background: rgba(255, 255, 255, 0.07) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.sdl-btn-fit:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Dim the unselected mode */
+.sdl-btn-dimmed {
+    opacity: 0.3 !important;
+    pointer-events: none !important;
+    transition: opacity 0.3s ease !important;
+}
+
+/* Non-embed view button */
+.sdl-btn-glow {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4) !important;
+}
+
+/* Button badge */
+.sdl-badge {
+    background: rgba(255, 255, 255, 0.13) !important;
+    padding: 3px 7px !important;
+    border-radius: 5px !important;
+    font-size: 10px !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Primary button badge */
+.sdl-badge.safe {
+    background: rgba(52, 211, 153, 0.18) !important;
+    color: #6ee7b7 !important;
+}
+
+/* ── Tooltip ───────────────────────────────────────────────────────────── */
+.sdl-tooltip {
+    visibility: hidden;
+    width: 256px;
+    background: #1a1a1e;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: left;
+    border-radius: 9px;
+    padding: 10px 13px;
+    position: absolute;
+    z-index: 10;
+    bottom: calc(100% + 9px);
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.18s ease;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.55;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+}
+
+.sdl-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #1a1a1e transparent transparent transparent;
+}
+
+.sdl-btn-container:hover .sdl-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* ── Success animation ─────────────────────────────────────────────────── */
+.sdl-pulse-success {
+    animation: sdl-success 1.6s ease-in-out 2;
+}
+
+@keyframes sdl-success {
+
+    0%,
+    100% {
+        box-shadow: 0 4px 14px rgba(52, 211, 153, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 4px 22px rgba(52, 211, 153, 0.8);
+    }
+}
